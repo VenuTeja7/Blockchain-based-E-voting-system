@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #3B4CCA;
+  --primary-light: #5C6EEE;
+  --primary-dark: #2A3AA9;
+  --secondary: #7E57C2;
+  --secondary-light: #9E77E2;
+  --secondary-dark: #5E35A2;
+  --accent: #FFD700;
+  --accent-light: #FFE54C;
+  --accent-dark: #CCA900;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --error: #F44336;
+  --background: #F5F7FF;
+  --foreground: #FFFFFF;
+  --text-primary: #212121;
+  --text-secondary: #616161;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+.scene {
+  perspective: 1000px;
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg);
+}
+
+.button-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button-3d:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button-3d:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+@layer components {
+  .input-field {
+    @apply w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-200;
+  }
+  
+  .btn-primary {
+    @apply py-3 px-6 bg-primary text-white rounded-lg hover:bg-primary-light transition duration-200 transform hover:-translate-y-1 active:translate-y-0 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply py-3 px-6 bg-secondary text-white rounded-lg hover:bg-secondary-light transition duration-200 transform hover:-translate-y-1 active:translate-y-0 shadow-md hover:shadow-lg;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6;
+  }
+}
